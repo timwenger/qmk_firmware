@@ -173,6 +173,10 @@
     // Split Keyboard
     "SOFT_SERIAL_PIN": {"info_key": "split.soft_serial_pin"},
     "SOFT_SERIAL_SPEED": {"info_key": "split.soft_serial_speed"},
+    "SERIAL_USART_FULL_DUPLEX": {"info_key": "split.serial.full_duplex", "value_type": "flag"},
+    "SERIAL_USART_TX_PIN": {"info_key": "split.serial.usart_tx_pin"},
+    "SERIAL_USART_RX_PIN": {"info_key": "split.serial.usart_rx_pin"},
+    "SERIAL_USART_PIN_SWAP": {"info_key": "split.serial.pin_swap", "value_type": "flag"},
     "SPLIT_HAND_MATRIX_GRID": {"info_key": "split.handedness.matrix_grid", "value_type": "array", "to_c": false},
     "SPLIT_HAND_PIN": {"info_key": "split.handedness.pin"},
     "SPLIT_USB_DETECT": {"info_key": "split.usb_detect.enabled", "value_type": "flag"},
