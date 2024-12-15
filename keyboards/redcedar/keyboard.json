@@ -26,6 +26,9 @@
             "usart_rx_pin": "GP23",
             "pin_swap": true
         },
+        "handedness":{
+            "pin":"GP20"
+        },
         "transport": {
             "sync": {
                 "matrix_state": true
