@@ -3,7 +3,7 @@
 ![Red Cedar development board](https://lh3.googleusercontent.com/pw/AP1GczOAG3cQS67Ck2gmhTVoDx-3qEDvIVRzw1Dd1UnRoB40SLz5PGs-aCePbomDM7NFegApyWxA4ezvNfCd3nNHLp2Rgb5seCRWr3ySm0-03Nt9_jdl_cvqAMCpwwa4sprnZKFMW1HqdRgfk4W4QuGpKCN38A=w2237-h1677-s-no?authuser=0)
 
 
-The Red Ceard keyboard general shape was inspired by the dactyl manuform. Including game controller buttons was an inspiration from the [Dactyl TypeSafe](https://github.com/tewtham/dactyl-typesafe)
+The Red Cedar keyboard general shape was inspired by the dactyl manuform. Including game controller buttons was an inspiration from the [Dactyl TypeSafe](https://github.com/tewtham/dactyl-typesafe)
 
 * Keyboard Maintainer: [Tim Wenger](https://github.com/timwenger)
 * Hardware Supported: 3D printed case, RP2040 pro micro footprint
