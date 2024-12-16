@@ -147,10 +147,10 @@ bool analog_joystick_init(void) {
     yOrigin = analogReadPin(ANALOG_JOYSTICK_Y_AXIS_PIN);
 
 #ifdef ANALOG_JOYSTICK_AUTO_AXIS
-    minAxisValues[0] = xOrigin - 100;
-    minAxisValues[1] = yOrigin - 100;
-    maxAxisValues[0] = xOrigin + 100;
-    maxAxisValues[1] = yOrigin + 100;
+    minAxisValues[0] = xOrigin - 250;
+    minAxisValues[1] = yOrigin - 250;
+    maxAxisValues[0] = xOrigin + 250;
+    maxAxisValues[1] = yOrigin + 250;
 #endif
 
     return true;
