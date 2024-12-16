@@ -139,6 +139,9 @@ void analog_joystick_init(void) {
     yOrigin = analogReadPin(ANALOG_JOYSTICK_Y_AXIS_PIN);
 
 #ifdef ANALOG_JOYSTICK_AUTO_AXIS
+    // Tim: I changed this from 100 for each, since the joystick moves slightly more than 250 
+    // in each direction from the middle (around 480 to 510). Being at 100, it would give max 
+    // cursor speed (it would saturate) at only 40% or so joystick movement
     minAxisValues[0] = xOrigin - 250;
     minAxisValues[1] = yOrigin - 250;
     maxAxisValues[0] = xOrigin + 250;
