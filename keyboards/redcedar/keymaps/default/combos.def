@@ -1,0 +1,5 @@
+// https://docs.qmk.fm/features/combo#dictionary-management
+
+//   name      result     chord keys
+COMB(R_WIN,    KC_RWIN,   KC_COMM, KC_DOT)
+COMB(L_WIN,    KC_LWIN,   KC_X, KC_C)    
