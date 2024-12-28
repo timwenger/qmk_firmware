@@ -1,5 +1,42 @@
 // https://docs.qmk.fm/features/combo#dictionary-management
 
-//   name      result     chord keys
-COMB(R_WIN,    KC_RWIN,   KC_COMM, KC_DOT)
-COMB(L_WIN,    KC_LWIN,   KC_X, KC_C)    
+//   name                result                 chord keys
+
+// Left hand general
+// ======================================================================
+
+COMB(PAGE_UP,            KC_PGUP,               KC_W, KC_F)
+COMB(PAGE_DOWN,          KC_PGDN,               KC_F, KC_P)
+COMB(DELETE,             KC_DEL,               KC_X, KC_C)
+
+COMB(CLOSE_WINDOW,       LALT(KC_F4),           KC_Q, KC_W, KC_F, KC_P)
+COMB(PRINT_SCREEN,       KC_PSCR,               KC_A, KC_R, KC_S, KC_T)
+COMB(TASK_MANAGER,       LCTL(LSFT(KC_ESC)),    KC_Z, KC_X, KC_C, KC_V)
+
+
+// Right hand general
+// ======================================================================
+
+COMB(BACK_TICK,          KC_GRV,                KC_L, KC_U)
+COMB(QUOTES,             KC_QUOT,               KC_U, KC_Y)
+COMB(DASH_AND_UNDERSCR,  KC_MINS,               KC_N, KC_E, KC_I)
+COMB(SEMICOLON,          KC_SEMICOLON,          KC_COMM, KC_DOT)
+
+
+// modifiers
+// ======================================================================
+
+COMB(L_WIN,              KC_LWIN,               KC_C, KC_V)
+COMB(R_WIN,              KC_RWIN,               KC_M, KC_COMM)
+
+
+// brackets
+// ======================================================================
+
+COMB(L_PARENTHESIS,      KC_LPRN,               KC_R, KC_T)
+COMB(R_PARENTHESIS,      KC_RPRN,               KC_N, KC_I)
+COMB(L_SQUARE_BRACKET,   KC_LBRC,               KC_X, KC_V)
+COMB(R_SQUARE_BRACKET,   KC_RBRC,               KC_M, KC_DOT)
+COMB(L_CURLY_BRACE,      KC_LCBR,               KC_W, KC_P)
+COMB(R_CURLY_BRACE,      KC_RCBR,               KC_L, KC_Y)
+
