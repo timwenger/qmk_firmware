@@ -20,7 +20,7 @@
     "split": {
         "enabled": true,
         "serial":{
-            "serial_driver": "vendor",
+            "driver": "vendor",
             "full_duplex": true,
             "usart_tx_pin": "GP21",
             "usart_rx_pin": "GP23",

@@ -839,18 +839,6 @@
             "additionalProperties": false,
             "properties": {
                 "enabled": {"type": "boolean"},
-                "serial":
-                {
-                    "type": "object",
-                    "properties": {
-                        "serial_driver": {"type": "string"},
-                        "full_duplex": {"type": "boolean"},
-                        "usart_tx_pin": {"type": "string"},
-                        "usart_rx_pin": {"type": "string"},
-                        "pin_swap": {"type": "boolean"},
-                    }
-
-                }
                 "bootmagic":{
                     "type": "object",
                     "additionalProperties": false,
@@ -937,6 +925,10 @@
                             "minimum": 0,
                             "maximum": 5
                         }
+                        "full_duplex": {"type": "boolean"},
+                        "usart_tx_pin": {"type": "string"},
+                        "usart_rx_pin": {"type": "string"},
+                        "pin_swap": {"type": "boolean"},
                     }
                 },
                 "transport": {
