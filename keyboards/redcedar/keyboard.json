@@ -9,6 +9,9 @@
         "pid": "0x0000",
         "vid": "0xFEED"
     },
+    "bootmagic": {
+        "matrix": [0, 0]
+    },
     "features": {
         "bootmagic": true,
         "command": false,
@@ -89,7 +92,9 @@
                 {"matrix": [3, 2], "x": 2, "y": 3},
                 {"matrix": [3, 3], "x": 3, "y": 3},
                 {"matrix": [3, 4], "x": 4, "y": 3},
+                {"matrix": [3, 5], "x": 5, "y": 3},
 
+                {"matrix": [8, 1], "x": 6, "y": 3},
                 {"matrix": [8, 2], "x": 7, "y": 3},
                 {"matrix": [8, 3], "x": 8, "y": 3},
                 {"matrix": [8, 4], "x": 9, "y": 3},
