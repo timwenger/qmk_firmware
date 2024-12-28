@@ -7,24 +7,24 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base (qwerty)
      * +-----------------------------------------+                             +-----------------------------------------+
-     * | ESC  |   q  |   w  |   e  |   r  |   t  |                             |   y  |   u  |   i  |   o  |   p  |      |
+     * | boot |   q  |   w  |   f  |   p  |   g  |                             |   j  |   l  |   u  |   y  | esc  | boot |
      * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
-     * | TAB  |   a  |   s  |   d  |   f  |   g  |                             |   h  |   j  |   k  |   l  |   ;  |      |
+     * | TAB  |   a  |   r  |   s  |   t  |   d  |                             |   h  |   n  |   e  |   i  |   o  |  '   |
      * |------+------+------+------+------+------|                             |------+------+------+------+------+------|
-     * | SHFT |   z  |   x  |   c  |   v  |   b  |                             |   n  |   m  |   ,  |   .  |   /  |      |
-     * +------+------+------+------+-------------+                             +-------------+------+------+------+------+
-     *               |  [   |   ]  | a    |                                           | 5    |  +   |  =   |
-     *               +-------------+-------------+                             +-------------+-------------+
-     *                             |  b   |   c  |                             |  3   |  4   |
-     *                             |------+------|                             |------+------|
+     * | SHFT |   z  |   x  |   c  |   v  |   b  |                             |   k  |   m  |   ,  |   .  |   ?  |  \   |
+     * +------+------+------+------+------+------+                             +------+------+------+------+------+------+
+     *               |  [   | tab  |sh/bpc|                                           |sh/spc| enter|  +   |
+     *               +------+-------------+------+                             +------+------+------+------+
+     *                             |  alt | ctr  |                             | ctr  |  alt |
+     *                             +------+------+                             +------+------+
 
      */
     [0] = LAYOUT(
-        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-        KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                          KC_LBRC, KC_RBRC, KC_A,                                 KC_P5,   KC_PLUS, KC_EQL,
-                                            KC_B,   KC_C,                KC_P3,   KC_P4
+        QK_BOOTLOADER,  KC_Q,    KC_W,    KC_F,    KC_P,             KC_G,               KC_J,            KC_L,    KC_U,    KC_Y,    KC_ESC,  QK_BOOTLOADER,
+        KC_TAB,         KC_A,    KC_R,    KC_S,    KC_T,             KC_D,               KC_H,            KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+        KC_LSFT,        KC_Z,    KC_X,    KC_C,    KC_V,             KC_B,               KC_K,            KC_M,    KC_COMM, KC_DOT,  KC_QUES, KC_BSLS,
+                                 KC_LBRC, KC_TAB,  LSFT_T(KC_BSPC),  KC_P1,              RSFT_T(KC_SPC),  KC_ENT,  KC_PLUS, KC_P2,
+                                                   KC_LALT,          KC_LCTL,            KC_RCTL,         KC_RALT
     )
 };
 
@@ -62,7 +62,8 @@ report_mouse_t pointing_device_task_user(report_mouse_t left_report) {
 
   int16_t X = analogReadPin(ANALOG_JOYSTICK_X_AXIS_PIN);
   int16_t Y = analogReadPin(ANALOG_JOYSTICK_Y_AXIS_PIN);
+  int16_t button = analogReadPin(GP28);
 
-  uprintf("x: %5d y: %5d X: %5d Y: %5d\n", left_report.x, left_report.y, X, Y);
+  uprintf("x: %5d y: %5d X: %5d Y: %5d Button: %5d\n", left_report.x, left_report.y, X, Y, button);
   return left_report;
 }
