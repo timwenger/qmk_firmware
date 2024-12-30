@@ -15,7 +15,7 @@ COMB(RIGHT_CLICK,        QK_MOUSE_BUTTON_2,     KC_X, KC_C, KC_V)
 
 COMB(CLOSE_WINDOW,       LALT(KC_F4),           KC_Q, KC_W, KC_F, KC_P)
 COMB(PRINT_SCREEN,       KC_PRINT_SCREEN,       LT(2, KC_A), KC_R, KC_S, KC_T)
-COMB(TASK_MANAGER,       LCTL(LSFT(KC_ESC)),    KC_Z, KC_X, KC_C, KC_V)
+COMB(TASK_MANAGER,       RCS(KC_ESC),           KC_Z, KC_X, KC_C, KC_V)
 
 
 // Right hand general
