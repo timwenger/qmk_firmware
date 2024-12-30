@@ -54,8 +54,9 @@ COMB(MINUS_SIGN,         KC_KP_MINUS,           KC_1, KC_2)
 COMB(PLUS_SIGN,          KC_KP_PLUS,            KC_2, KC_3)
 
 
-// Bootloader
+// 3x vertical, don't accidentally touch me combos
 // ======================================================================
 
-COMB(L_BOOTLOADER,       QK_BOOTLOADER,         KC_AUDIO_MUTE, KC_TAB, KC_SYSTEM_SLEEP)
+COMB(L_BOOTLOADER,       QK_BOOTLOADER,         KC_AUDIO_MUTE, KC_TAB, KC_MEDIA_PLAY_PAUSE)
 COMB(R_BOOTLOADER,       QK_BOOTLOADER,         KC_AUDIO_VOL_UP, KC_ENTER, KC_AUDIO_VOL_DOWN)
+COMB(PC_SLEEP,           KC_SYSTEM_SLEEP,       KC_Q, LT(2, KC_A), KC_Z)
