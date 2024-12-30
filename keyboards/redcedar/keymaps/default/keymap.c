@@ -49,52 +49,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-uint8_t mod_state;
-bool process_record_user(uint16_t keycode, keyrecord_t *record)
-{
-  mod_state = get_mods();
+const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
+const key_override_t shift_space_enter = ko_make_basic(MOD_MASK_SHIFT, RSFT_T(KC_SPC), KC_ENTER);
+const key_override_t exclamation_mark = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXCLAIM);
 
-  switch(keycode) { 
-    // Switch backspace for a delete press, if holding shift
-    // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#shift--backspace-for-delete-shift-backspace-for-delete
-    // This case, LSFT_T(KC_BSPC), has to capture the whole feature code of the
-    // left thumb press, not just KC_BSPC
-    case LSFT_T(KC_BSPC): {
-      static bool delkey_registered;
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+	&shift_backspace_delete,
+  &shift_space_enter,
+  &exclamation_mark
+};
 
-      if (record->event.pressed) {  // On key press.
-        if (keyboard_report->mods & MOD_BIT(KC_RSFT)) {
-          // First temporarily canceling shift so that
-          // shift isn't applied to the KC_DEL keycode
-          del_mods(MOD_MASK_SHIFT);
-          register_code(KC_DEL);
-
-          // Update the boolean variable to reflect the status of KC_DEL
-          delkey_registered = true;
-
-          // Reapplying modifier state so that the held shift key
-          // still works even after having tapped the Backspace/Delete key.
-          set_mods(mod_state);
-          return false;
-        }
-        // if the right shift wasn't pressed, return true and do the normal LSFT_T(KC_BSPC)
-        return true;
-
-      } else { // on release of LSFT_T(KC_BSPC)
-        // In case KC_DEL is still being sent even after the release of LSFT_T(KC_BSPC)
-        if (delkey_registered) {
-          unregister_code(KC_DEL);
-          delkey_registered = false;
-          return false;
-        }
-      }
-    }
-  };
-
-
-
-  return true;
-}
 
 // int count = 0;
 // report_mouse_t pointing_device_task_user(report_mouse_t left_report) {
