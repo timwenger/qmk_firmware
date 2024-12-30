@@ -2,14 +2,9 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 # include QMK_KEYBOARD_H
+# include "layers.h"
 # include "print.h"
 # include "g/keymap_combo.h"
-
-enum layer_names {
-  HOME,
-  AROW,
-  NUM
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base (qwerty)
