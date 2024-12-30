@@ -371,6 +371,17 @@
                             }
                         ]
                     }
+                },
+                "pointing_device_rotation_180": {"type": "boolean"},
+                "pointing_device_left": {"type": "boolean"},
+                "split_pointing_enable": {"type": "boolean"},
+                "analog": {
+                    "type": "object",
+                    "properties": {
+                        "x_axis_pin": {"type": "string"},
+                        "Y_axis_pin": {"type": "string"},
+                        "auto_axis": {"type": "boolean"}
+                    }
                 }
             }
         },
