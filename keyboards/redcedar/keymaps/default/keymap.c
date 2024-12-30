@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [HOME] = LAYOUT(
         KC_AUDIO_MUTE,  KC_Q,           KC_W,     KC_F,     KC_P,             KC_G,             KC_J,            KC_L,    KC_U,    KC_Y,    KC_ESC,          KC_AUDIO_VOL_UP,
         KC_TAB,         LT(NUM, KC_A),  KC_R,     KC_S,     KC_T,             KC_D,             KC_H,            KC_N,    KC_E,    KC_I,    LT(AROW, KC_O),  KC_ENT,
-        KC_SLEP,        KC_Z,           KC_X,     KC_C,     KC_V,             KC_B,             KC_K,            KC_M,    KC_COMM, KC_DOT,  KC_QUES,         KC_AUDIO_VOL_DOWN,
+        KC_MPLY,        KC_Z,           KC_X,     KC_C,     KC_V,             KC_B,             KC_K,            KC_M,    KC_COMM, KC_DOT,  KC_QUES,         KC_AUDIO_VOL_DOWN,
                                         KC_NO,    KC_NO,    LSFT_T(KC_BSPC),  KC_NO,            RSFT_T(KC_SPC),  KC_NO,   KC_NO,   KC_NO,
                                                             KC_LALT,          KC_LCTL,          KC_RCTL,         KC_RALT
     ),
