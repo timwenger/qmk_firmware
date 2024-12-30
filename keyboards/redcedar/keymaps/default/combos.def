@@ -35,12 +35,12 @@ COMB(R_WIN,              KC_RWIN,               KC_M, KC_COMM)
 // brackets
 // ======================================================================
 
+COMB(L_SQUARE_BRACKET,   KC_LBRC,               KC_W, KC_P)
+COMB(R_SQUARE_BRACKET,   KC_RBRC,               KC_L, KC_Y)
 COMB(L_PARENTHESIS,      KC_LPRN,               KC_R, KC_T)
 COMB(R_PARENTHESIS,      KC_RPRN,               KC_N, KC_I)
-COMB(L_SQUARE_BRACKET,   KC_LBRC,               KC_X, KC_V)
-COMB(R_SQUARE_BRACKET,   KC_RBRC,               KC_M, KC_DOT)
-COMB(L_CURLY_BRACE,      KC_LCBR,               KC_W, KC_P)
-COMB(R_CURLY_BRACE,      KC_RCBR,               KC_L, KC_Y)
+COMB(L_CURLY_BRACE,      KC_LCBR,               KC_X, KC_V)
+COMB(R_CURLY_BRACE,      KC_RCBR,               KC_M, KC_DOT)
 
 
 // numbers layer
