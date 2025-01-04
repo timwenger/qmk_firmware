@@ -20,6 +20,10 @@
         "mousekey": true,
         "nkro": true
     },
+    "tapping": {
+        "term_per_key" : true,
+        "permissive_hold_per_key" : true
+    },
     "split": {
         "enabled": true,
         "serial":{
