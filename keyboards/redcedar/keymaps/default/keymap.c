@@ -65,6 +65,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+// https://docs.qmk.fm/tap_hold#permissive-hold
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(NUM, KC_A):
