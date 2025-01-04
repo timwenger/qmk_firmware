@@ -4,6 +4,7 @@
     "maintainer": "Tim Wenger",
     "bootloader": "rp2040",
     "processor": "RP2040",
+    "console_enable": true,
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x0000",
@@ -15,8 +16,10 @@
     "features": {
         "bootmagic": true,
         "command": false,
-        "console": false,
+        "console": true,
         "extrakey": true,
+        "key_override_enable": true,
+        "combo": true,
         "mousekey": true,
         "nkro": true
     },
@@ -43,6 +46,8 @@
         }
     },
     "joystick":{
+        "pointing_device_enable": true,
+        "pointing_device_driver": "analog_joystick",
         "pointing_device_rotation_180": true,
         "pointing_device_left": true,
         "split_pointing_enable": true,
