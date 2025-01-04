@@ -1,8 +1,1 @@
-CONSOLE_ENABLE = yes
-POINTING_DEVICE_ENABLE = yes
-POINTING_DEVICE_DRIVER = analog_joystick
-
-COMBO_ENABLE = yes
 VPATH += keyboards/gboards
-KEY_OVERRIDE_ENABLE = yes
-EXTRAKEY_ENABLE = yes
