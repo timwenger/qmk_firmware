@@ -31,7 +31,7 @@ COMB(SEMICOLON,          KC_SEMICOLON,          KC_COMM, KC_DOT)
 
 COMB(L_WIN,              KC_LWIN,               KC_C, KC_V)
 COMB(R_WIN,              KC_RWIN,               KC_M, KC_COMM)
-
+COMB(CAPS_WORD,          QK_CAPS_WORD_TOGGLE,   LSFT_T(KC_BSPC), RSFT_T(KC_SPC))
 
 // brackets
 // ======================================================================

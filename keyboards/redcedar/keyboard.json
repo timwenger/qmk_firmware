@@ -20,6 +20,10 @@
         "mousekey": true,
         "nkro": true
     },
+    "caps_word": {
+        "enabled": true,
+        "both_shifts_turns_on": false
+    },
     "tapping": {
         "term_per_key" : true,
         "permissive_hold_per_key" : true
