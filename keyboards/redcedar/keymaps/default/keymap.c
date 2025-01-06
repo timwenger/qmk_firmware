@@ -77,6 +77,32 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+// The higher the thresholds are, the longer it takes to accumulate to scroll to the next line jump
+int vertical_scroll_sum = 0;
+int vertical_scroll_threshold = 60;
+int horizontal_scroll_sum = 0;
+int horizontal_scroll_threshold = 80;
+report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, report_mouse_t right_report) {
+    vertical_scroll_sum += right_report.y;
+    if (vertical_scroll_sum > vertical_scroll_threshold) {
+        left_report.v = -1;
+        vertical_scroll_sum = 0;
+    } else if (vertical_scroll_sum < (vertical_scroll_threshold * -1)) {
+        left_report.v = 1;
+        vertical_scroll_sum = 0;
+    }
+
+    horizontal_scroll_sum += right_report.x;
+    if (horizontal_scroll_sum > horizontal_scroll_threshold){
+        left_report.h = 1;
+        horizontal_scroll_sum = 0;
+    } else if (horizontal_scroll_sum < (horizontal_scroll_threshold * -1)){
+        left_report.h = -1;
+        horizontal_scroll_sum = 0;
+    }
+
+    return left_report;
+}
 // int count = 0;
 // report_mouse_t pointing_device_task_user(report_mouse_t left_report) {
 
