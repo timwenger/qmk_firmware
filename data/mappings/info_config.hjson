@@ -80,6 +80,7 @@
     "JOYSTICK_AXIS_RESOLUTION": {"info_key": "joystick.axis_resolution", "value_type": "int"},
     "JOYSTICK_BUTTON_COUNT": {"info_key": "joystick.button_count", "value_type": "int"},
     "POINTING_DEVICE_ROTATION_180": {"info_key": "joystick.pointing_device_rotation_180", "value_type": "flag"},
+    "POINTING_DEVICE_ROTATION_270_RIGHT": {"info_key": "joystick.pointing_device_rotation_270_right", "value_type": "flag"},
     "SPLIT_POINTING_ENABLE": {"info_key": "joystick.split_pointing_enable", "value_type": "flag"},
     "POINTING_DEVICE_LEFT": {"info_key": "joystick.pointing_device_left", "value_type": "flag"},
     "POINTING_DEVICE_RIGHT": {"info_key": "joystick.pointing_device_right", "value_type": "flag"},

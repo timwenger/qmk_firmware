@@ -48,10 +48,13 @@
     },
     "joystick":{
         "pointing_device_enable": true,
-        "pointing_device_driver": "analog_joystick",
-        "pointing_device_rotation_180": true,
-        "pointing_device_left": true,
         "split_pointing_enable": true,
+        "pointing_device_driver": "analog_joystick",
+        "pointing_device_left": false,
+        "pointing_device_right": false,
+        "pointing_device_combined": true,
+        "pointing_device_rotation_180": true,
+        "pointing_device_rotation_270_right": true,
         "analog":{
             "x_axis_pin": "GP27",
             "y_axis_pin": "GP26",

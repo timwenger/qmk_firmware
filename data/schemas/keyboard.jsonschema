@@ -375,6 +375,7 @@
                 "pointing_device_enable": {"type": "boolean"},
                 "split_pointing_enable": {"type": "boolean"},
                 "pointing_device_rotation_180": {"type": "boolean"},
+                "pointing_device_rotation_270_right": {"type": "boolean"},
                 "pointing_device_left": {"type": "boolean"},
                 "pointing_device_right": {"type": "boolean"},
                 "pointing_device_combined": {"type": "boolean"},
