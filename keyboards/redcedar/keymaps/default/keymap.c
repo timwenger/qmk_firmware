@@ -28,6 +28,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),  KC_NO,   KC_NO,
                                                             KC_LALT,          KC_LCTL,          KC_RCTL,   KC_RALT
     ),
+    [LH_NUM] = LAYOUT(
+        LCTL(KC_Y),     KC_NO,          KC_7,     KC_8,     KC_9,             KC_EQL,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+        KC_TAB,         LT(AROW, KC_0), KC_4,     KC_5,     KC_6,             KC_MINS,          KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+        LCTL(KC_Z),     KC_ENTER,       KC_1,     KC_2,     KC_3,             KC_SLSH,          KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+                                        KC_COMM,  KC_DOT,   LSFT_T(KC_SPC),                                KC_TRNS,         KC_TRNS, KC_TRNS,
+                                                            KC_LALT,          KC_LCTL,          KC_TRNS,   KC_TRNS
+    ),
     [AROW] = LAYOUT(
         KC_NO,          KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,           KC_NO,
         KC_NO,          KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_TRNS,         KC_NO,
@@ -77,12 +84,36 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool left_side_scroll = false;
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(AROW, KC_0):
+            if(record->event.pressed){
+                left_side_scroll = true;
+            }
+            else {
+                left_side_scroll = false;
+            }
+            return true;
+        default:
+            return true;
+    }
+    return true;
+}
+
 // The higher the thresholds are, the longer it takes to accumulate to scroll to the next line jump
 int vertical_scroll_sum = 0;
 int vertical_scroll_threshold = 60;
 int horizontal_scroll_sum = 0;
 int horizontal_scroll_threshold = 80;
 report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, report_mouse_t right_report) {
+    if (left_side_scroll){
+        right_report.x = left_report.x;
+        right_report.y = left_report.y;
+        left_report.x = 0;
+        left_report.y = 0;
+    }
+    
     vertical_scroll_sum += right_report.y;
     if (vertical_scroll_sum > vertical_scroll_threshold) {
         left_report.v = -1;
