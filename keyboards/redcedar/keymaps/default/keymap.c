@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [NUM] = LAYOUT(
         KC_NO,          KC_NO, QK_MOUSE_BUTTON_2, KC_NO,   QK_MOUSE_BUTTON_1, KC_NO,            KC_EQL,    KC_7,             KC_8,   KC_9,   KC_NO,           KC_NO,
-        KC_NO,          KC_TRNS,        KC_PIPE,  KC_BSLS,  KC_SLSH,          KC_MINS,          KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,            KC_NO,
+        KC_NO,          KC_TRNS,        KC_BSLS,  KC_SLSH,  KC_MINS,          KC_NO,            KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,            KC_NO,
         KC_NO,          KC_NO,          KC_NO,    KC_NO,    KC_NO,            KC_NO,            KC_NO,     KC_1,             KC_2,   KC_3,   KC_NO,           KC_NO,
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_DEL),                                RSFT_T(KC_SPC),   KC_COMM, KC_DOT,
                                                             KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
