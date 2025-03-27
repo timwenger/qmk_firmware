@@ -8,8 +8,8 @@
 COMB(PAGE_UP,            KC_PGUP,               KC_W, KC_F)
 COMB(PAGE_DOWN,          KC_PGDN,               KC_F, KC_P)
 
-COMB(LEFT_CLICK,         QK_MOUSE_BUTTON_1,     KC_T, LSFT_T(KC_BSPC))
-COMB(RIGHT_CLICK,        QK_MOUSE_BUTTON_2,     KC_S, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_LCTRL,    KC_LCTL,               KC_T, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_LALT,     KC_LALT,               KC_S, LSFT_T(KC_BSPC))
 
 COMB(CLOSE_WINDOW,       LALT(KC_F4),           KC_Q, KC_W, KC_F, KC_P)
 COMB(PRINT_SCREEN,       KC_PRINT_SCREEN,       KC_R, KC_S, KC_T)
@@ -27,8 +27,8 @@ COMB(BACK_TICK,          KC_GRV,                KC_L, KC_U)
 COMB(QUOTES,             KC_QUOT,               KC_U, KC_Y)
 COMB(SEMICOLON,          KC_SEMICOLON,          KC_COMM, KC_DOT)
 
-COMB(NO_PS2BTN_CTRL,     KC_RCTL,               KC_N, RSFT_T(KC_SPC))
-COMB(NO_PS2BTN_ALT,      KC_RALT,               KC_E, RSFT_T(KC_SPC))
+COMB(NO_PS2BTN_RCTRL,    KC_RCTL,               KC_N, RSFT_T(KC_SPC))
+COMB(NO_PS2BTN_RALT,     KC_RALT,               KC_E, RSFT_T(KC_SPC))
 
 // modifiers
 // ======================================================================
@@ -48,11 +48,24 @@ COMB(L_CURLY_BRACE,      KC_LCBR,               KC_X, KC_V)
 COMB(R_CURLY_BRACE,      KC_RCBR,               KC_M, KC_DOT)
 
 
-// numbers layer (copies of base layer only, since they take a second to load)
-// likely because the layer isn't activated yet until the tapping term on the 'A' key expires.
+// numbers layer (copies of base layer only, since otherwise they take a second to load)
 // ======================================================================
 
 COMB(SEMICOLON_CPY,      KC_SEMICOLON,          KC_2, KC_3)
+
+COMB(NO_PS2BTN_LCTRL_NUM, KC_LCTL,              KC_MINS, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_LALT_NUM,  KC_LALT,              KC_SLSH, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_RCTRL_NUM, KC_RCTL,              KC_4, RSFT_T(KC_SPC))
+COMB(NO_PS2BTN_RALT_NUM,  KC_RALT,              KC_5, RSFT_T(KC_SPC))
+
+
+// Arrows layer (copies of base layer only, since otherwise they take a second to load)
+// ======================================================================
+
+COMB(NO_PS2BTN_LCTRL_ARW, KC_LCTL,              KC_RGHT, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_LALT_ARW,  KC_LALT,              KC_DOWN, LSFT_T(KC_BSPC))
+COMB(NO_PS2BTN_RCTRL_ARW, KC_RCTL,              KC_F4, RSFT_T(KC_ENTER))
+COMB(NO_PS2BTN_RALT_ARW,  KC_RALT,              KC_F5, RSFT_T(KC_ENTER))
 
 
 // 3x vertical, don't accidentally touch me combos. Sorted from left to right
