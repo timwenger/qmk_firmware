@@ -23,31 +23,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [HOME] = LAYOUT(
         KC_AUDIO_MUTE,  KC_Q,           KC_W,     KC_F,     KC_P,             KC_G,             KC_J,      KC_L,            KC_U,    KC_Y,    KC_ESC,          KC_AUDIO_VOL_UP,
-        KC_TAB,         LT(NUM, KC_A),  KC_R,     KC_S,     KC_T,             KC_D,             KC_H,      KC_N,            KC_E,    KC_I,    LT(AROW, KC_O),  KC_DEL,
-        KC_MPLY,        LT(AROW, KC_Z), KC_X,     KC_C,     KC_V,             KC_B,             KC_K,      KC_M,            KC_COMM, KC_DOT,  KC_QUES,         KC_AUDIO_VOL_DOWN,
+        KC_TAB,       LT(L_PKY, KC_A),  KC_R,     KC_S,     KC_T,             KC_D,             KC_H,      KC_N,            KC_E,    KC_I,    LT(R_PKY, KC_O), KC_DEL,
+        KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,     KC_C,     KC_V,             KC_B,             KC_K,      KC_M,            KC_COMM, KC_DOT,  KC_QUES,         KC_AUDIO_VOL_DOWN,
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),  KC_NO,   KC_NO,
                                                             KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
     ),
-    [LH_NUM] = LAYOUT(
-        LCTL(KC_Y),     KC_ESC,         KC_7,     KC_8,     KC_9,             KC_EQL,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-        KC_TAB,         LT(AROW, KC_0), KC_4,     KC_5,     KC_6,             KC_MINS,          KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-        LCTL(KC_Z),     KC_ENTER,       KC_1,     KC_2,     KC_3,             KC_SLSH,          KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-                                        KC_COMM,  KC_DOT,   LSFT_T(KC_SPC),                                KC_TRNS,         KC_TRNS, KC_TRNS,
-                                                            KC_TAB,           KC_LCTL,          KC_TRNS,   KC_TRNS
+    [LH] = LAYOUT(
+        KC_TRNS,        KC_NO,          KC_7,     KC_8,     KC_9,             KC_EQL,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+        KC_TRNS,       LT(L_PKY, KC_0), KC_4,     KC_5,     KC_6,             KC_SPC,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+        KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,     KC_2,     KC_3,             KC_ENTER,         KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
+                                        KC_COMM,  KC_DOT,   LSFT_T(KC_BSPC),                               KC_TRNS,         KC_TRNS, KC_TRNS,
+                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
-    [AROW] = LAYOUT(
+    [R_PKY] = LAYOUT(
         KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,          KC_TRNS,
         KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_TRNS,        KC_TRNS,
-        KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_NO,            KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
-                                        KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_ENTER), KC_NO,  KC_NO,
-                                                            KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
+        KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_ENTER,         KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
+                                        KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_ENTER), KC_NO,   KC_NO,
+                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
-    [NUM] = LAYOUT(
+    [L_LPKY] = LAYOUT(
+        KC_TRNS,        KC_TRNS,        KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
+                                        KC_TRNS,  KC_TRNS,  LSFT_T(KC_DEL),                                KC_TRNS,          KC_TRNS, KC_TRNS,
+                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
+    ),
+    [L_PKY] = LAYOUT(
         KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_NO,   QK_MOUSE_BUTTON_1, KC_NO,            KC_EQL,    KC_7,             KC_8,   KC_9,   KC_NO,            KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_BSLS,  KC_SLSH,  KC_MINS,          KC_NO,            KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,             KC_TRNS,
         KC_TRNS,        KC_NO,          KC_NO,    KC_NO,    KC_NO,            KC_NO,            KC_NO,     KC_1,             KC_2,   KC_3,   KC_NO,            KC_TRNS,
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),   KC_COMM, KC_DOT,
-                                                            KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
+                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
     )
 };
 
@@ -65,7 +72,7 @@ const key_override_t *key_overrides[] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(NUM, KC_A):
+        case LT(L_PKY, KC_A):
             return TAPPING_TERM + 50;
         default:
             return TAPPING_TERM;
@@ -75,7 +82,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // https://docs.qmk.fm/tap_hold#permissive-hold
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(NUM, KC_A):
+        case LT(L_PKY, KC_A):
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -87,7 +94,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool left_side_scroll = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(AROW, KC_0):
+        case LT(R_PKY, KC_0):
             if(record->event.pressed){
                 left_side_scroll = true;
             }
