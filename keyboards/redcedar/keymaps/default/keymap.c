@@ -29,29 +29,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                             KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
     ),
     [LH] = LAYOUT(
-        KC_TRNS,        KC_NO,          KC_7,     KC_8,     KC_9,             KC_EQL,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-        KC_TRNS,       LT(L_PKY, KC_0), KC_4,     KC_5,     KC_6,             KC_SPC,           KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-        KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,     KC_2,     KC_3,             KC_ENTER,         KC_TRNS,   KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,
-                                        KC_COMM,  KC_DOT,   LSFT_T(KC_BSPC),                               KC_TRNS,         KC_TRNS, KC_TRNS,
-                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
+        KC_TRNS,        KC_NO,          KC_7,     KC_8,     KC_9,             KC_EQL,           KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
+        KC_TRNS,       LT(L_PKY, KC_0), KC_4,     KC_5,     KC_6,             KC_SPC,           KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
+        KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,     KC_2,     KC_3,             KC_ENTER,         KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
+                                        KC_COMM,  KC_DOT,   LSFT_T(KC_BSPC),                               KC_NO,           KC_NO,   KC_NO,
+                                                            KC_TRNS,          KC_TRNS,          KC_NO,     KC_NO
     ),
     [R_PKY] = LAYOUT(
         KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_TRNS,        KC_TRNS,
+        KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_NO,          KC_TRNS,
         KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_ENTER,         KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_ENTER), KC_NO,   KC_NO,
                                                             KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_LPKY] = LAYOUT(
-        KC_TRNS,        KC_TRNS,        KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_TRNS,  KC_TRNS,  KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS, KC_TRNS,  KC_TRNS,       KC_TRNS,
-                                        KC_TRNS,  KC_TRNS,  LSFT_T(KC_DEL),                                KC_TRNS,          KC_TRNS, KC_TRNS,
+        KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,          KC_TRNS,
+        KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_NO,          KC_TRNS,
+        KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_ENTER,         KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
+                                        KC_LALT,  KC_TAB,   LSFT_T(KC_DEL),                                RSFT_T(KC_SPC),   KC_NO,   KC_NO,
                                                             KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_PKY] = LAYOUT(
         KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_NO,   QK_MOUSE_BUTTON_1, KC_NO,            KC_EQL,    KC_7,             KC_8,   KC_9,   KC_NO,            KC_TRNS,
-        KC_TRNS,        KC_TRNS,        KC_BSLS,  KC_SLSH,  KC_MINS,          KC_NO,            KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,             KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_BSLS,  KC_SLSH,  KC_MINS,          KC_NO,            KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,             KC_TRNS,
         KC_TRNS,        KC_NO,          KC_NO,    KC_NO,    KC_NO,            KC_NO,            KC_NO,     KC_1,             KC_2,   KC_3,   KC_NO,            KC_TRNS,
                                         KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),   KC_COMM, KC_DOT,
                                                             KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
