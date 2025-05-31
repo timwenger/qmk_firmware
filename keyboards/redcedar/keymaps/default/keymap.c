@@ -70,20 +70,25 @@ const key_override_t *key_overrides[] = {
 };
 
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(L_PKY, KC_A):
-            return TAPPING_TERM + 50;
-        default:
-            return TAPPING_TERM;
-    }
-}
+// May 31, 2025: I've turned off term_per_key in keyboard.json.
+// Instead I'm using a dynamic tapping term.
+
+// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case LT(L_PKY, KC_A):
+//             return TAPPING_TERM + 50;
+//         default:
+//             return TAPPING_TERM;
+//     }
+// }
 
 // https://docs.qmk.fm/tap_hold#permissive-hold
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(L_PKY, KC_A):
-            // Immediately select the hold action when another key is tapped.
+        case LT(R_PKY, KC_O):
+            // Select the hold action when another key is tapped and released
+            // before this key is released, even if it's tapped before the tapping term
             return true;
         default:
             // Do not select the hold action when another key is tapped.

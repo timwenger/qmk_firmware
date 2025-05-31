@@ -8,9 +8,9 @@
 COMB(PAGE_UP,            KC_PGUP,               KC_W, KC_F)
 COMB(PAGE_DOWN,          KC_PGDN,               KC_F, KC_P)
 
-COMB(LCTRL,    KC_LCTL,               KC_T, LSFT_T(KC_BSPC))
-COMB(LALT,     KC_LALT,               KC_S, LSFT_T(KC_BSPC))
-COMB(LESC,     KC_ESC,                KC_R, LSFT_T(KC_BSPC))
+COMB(LCTRL,    KC_LCTL,                         KC_T, LSFT_T(KC_BSPC))
+COMB(LALT,     KC_LALT,                         KC_S, LSFT_T(KC_BSPC))
+COMB(LESC,     KC_ESC,                          KC_R, LSFT_T(KC_BSPC))
 
 COMB(CLOSE_WINDOW,       LALT(KC_F4),           KC_Q, KC_W, KC_F, KC_P)
 COMB(PRINT_SCREEN,       KC_PRINT_SCREEN,       LT(L_PKY, KC_A), KC_R, KC_S, KC_T)
@@ -23,13 +23,17 @@ COMB(TOGGLE_FROM_L_HAND, TG(LH),                KC_4, KC_5, KC_6)
 // Right hand general
 // ======================================================================
 
-COMB(BACK_TICK,          KC_GRV,                KC_L, KC_U)
-COMB(QUOTES,             KC_QUOT,               KC_U, KC_Y)
-COMB(SEMICOLON,          KC_SEMICOLON,          KC_COMM, KC_DOT)
+COMB(BACK_TICK,          KC_GRV,                        KC_L, KC_U)
+COMB(QUOTES,             KC_QUOT,                       KC_U, KC_Y)
+COMB(SEMICOLON,          KC_SEMICOLON,                  KC_COMM, KC_DOT)
+        
+COMB(RCTRL,              KC_RCTL,                       KC_N, RSFT_T(KC_SPC))
+COMB(RALT,               KC_RALT,                       KC_E, RSFT_T(KC_SPC))
+COMB(RESC,               KC_ESC,                        KC_I, RSFT_T(KC_SPC))
 
-COMB(RCTRL,              KC_RCTL,               KC_N, RSFT_T(KC_SPC))
-COMB(RALT,               KC_RALT,               KC_E, RSFT_T(KC_SPC))
-COMB(RESC,               KC_ESC,                KC_I, RSFT_T(KC_SPC))
+COMB(TAP_TERM_LONGER,    QK_DYNAMIC_TAPPING_TERM_UP,    KC_L, KC_U, KC_Y, KC_ESC)
+COMB(PRINT_TAP_TERM,     QK_DYNAMIC_TAPPING_TERM_PRINT, KC_N, KC_E, KC_I, LT(R_PKY, KC_O))
+COMB(TAP_TERM_SHORTER,   QK_DYNAMIC_TAPPING_TERM_DOWN,  KC_M, KC_COMM, KC_DOT, KC_QUES)
 
 // modifiers
 // ======================================================================

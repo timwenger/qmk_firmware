@@ -25,8 +25,9 @@
         "both_shifts_turns_on": false
     },
     "tapping": {
-        "term_per_key" : true,
-        "permissive_hold_per_key" : true
+        "term_per_key" : false,
+        "permissive_hold_per_key" : true,
+        "dynamic_tapping_term" : true
     },
     "split": {
         "enabled": true,
