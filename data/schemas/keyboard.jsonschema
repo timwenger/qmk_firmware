@@ -945,6 +945,7 @@
                 "retro_per_key": {"type": "boolean"},
                 "term": {"$ref": "qmk.definitions.v1#/unsigned_int"},
                 "term_per_key": {"type": "boolean"},
+                "dynamic_tapping_term": {"type": "boolean"},
                 "toggle": {"$ref": "qmk.definitions.v1#/unsigned_int"}
             }
         },

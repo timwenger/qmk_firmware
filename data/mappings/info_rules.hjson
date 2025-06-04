@@ -28,6 +28,7 @@
     "HAPTIC_DRIVER": {"info_key": "haptic.driver"},
     "JOYSTICK_DRIVER": {"info_key": "joystick.driver"},
     "JOYSTICK_ENABLE": {"info_key": "joystick.enabled", "value_type": "bool"},
+    "DYNAMIC_TAPPING_TERM_ENABLE": {"info_key": "tapping.dynamic_tapping_term", "value_type": "bool"},
     
     "POINTING_DEVICE_ENABLE": {"info_key": "joystick.pointing_device_enable", "value_type": "bool"},
     "POINTING_DEVICE_DRIVER": {"info_key": "joystick.pointing_device_driver"},
