@@ -1023,6 +1023,7 @@
                 "term": {"$ref": "./definitions.jsonschema#/unsigned_int"},
                 "term_per_key": {"type": "boolean"},
                 "toggle": {"$ref": "./definitions.jsonschema#/unsigned_int"}
+                "dynamic_tapping_term": {"type": "boolean"},
             }
         },
         "usb": {
