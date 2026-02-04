@@ -6,6 +6,15 @@
 # include "print.h"
 # include "g/keymap_combo.h"
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
+                  'L', 'L', 'L',               'R', 'R', 'R',
+                            'L', 'L',     'R', 'R'
+    );
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base (qwerty)
      * +-----------------------------------------+                             +-----------------------------------------+
@@ -72,7 +81,6 @@ const key_override_t *key_overrides[] = {
 
 // May 31, 2025: I've turned off term_per_key in keyboard.json.
 // Instead I'm using a dynamic tapping term.
-
 // uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 //     switch (keycode) {
 //         case LT(L_PKY, KC_A):
@@ -82,19 +90,21 @@ const key_override_t *key_overrides[] = {
 //     }
 // }
 
+// Feb 3, 2026: removed permissive_hold_per_key in hopes that opposite hand home row mods
+// such as chordal hold and flow tap will allow using Hold on other Key Press for all holds
 // https://docs.qmk.fm/tap_hold#permissive-hold
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(L_PKY, KC_A):
-        case LT(R_PKY, KC_O):
-            // Select the hold action when another key is tapped and released
-            // before this key is released, even if it's tapped before the tapping term
-            return true;
-        default:
-            // Do not select the hold action when another key is tapped.
-            return false;
-    }
-}
+// bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case LT(L_PKY, KC_A):
+//         case LT(R_PKY, KC_O):
+//             // Select the hold action when another key is tapped and released
+//             // before this key is released, even if it's tapped before the tapping term
+//             return true;
+//         default:
+//             // Do not select the hold action when another key is tapped.
+//             return false;
+//     }
+// }
 
 bool left_side_scroll = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
