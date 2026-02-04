@@ -1,74 +1,40 @@
 {
-    "manufacturer": "Tim Wenger",
+    "bootloader": "rp2040",
+    "console_enable": true,
+    "diode_direction": "COL2ROW",
     "keyboard_name": "red_cedar",
     "maintainer": "Tim Wenger",
-    "bootloader": "rp2040",
+    "manufacturer": "Tim Wenger",
     "processor": "RP2040",
-    "console_enable": true,
-    "usb": {
-        "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+    "caps_word": {
+        "both_shifts_turns_on": false,
+        "enabled": true
     },
     "features": {
         "bootmagic": true,
+        "combo": true,
         "command": false,
         "console": true,
         "extrakey": true,
         "key_override_enable": true,
-        "combo": true,
         "mousekey": true,
         "nkro": true
     },
-    "caps_word": {
-        "enabled": true,
-        "both_shifts_turns_on": false
-    },
-    "tapping": {
-        "term_per_key" : false,
-        "permissive_hold_per_key" : true,
-        "hold_on_other_key_press_per_key" : false,
-        "dynamic_tapping_term" : true
-    },
-    "split": {
-        "enabled": true,
-        "serial":{
-            "driver": "vendor",
-            "full_duplex": true,
-            "usart_tx_pin": "GP21",
-            "usart_rx_pin": "GP23",
-            "pin_swap": true
-        },
-        "handedness":{
-            "pin":"GP20"
-        },
-        "transport": {
-            "sync": {
-                "matrix_state": true
-            }
-        }
-    },
     "joystick":{
-        "pointing_device_enable": true,
-        "split_pointing_enable": true,
+        "pointing_device_combined": true,
         "pointing_device_driver": "analog_joystick",
+        "pointing_device_enable": true,
         "pointing_device_left": false,
         "pointing_device_right": false,
-        "pointing_device_combined": true,
         "pointing_device_rotation_180": true,
         "pointing_device_rotation_270_right": true,
+        "split_pointing_enable": true,
         "analog":{
+            "auto_axis": true,
             "x_axis_pin": "GP27",
-            "y_axis_pin": "GP26",
-            "auto_axis": true
+            "y_axis_pin": "GP26"
         }
     },
-    "matrix_pins": {
-        "cols": ["GP9", "GP8", "GP7", "GP6", "GP5", "GP4"],
-        "rows": ["GP10", "GP0", "GP1", "GP2", "GP3"]
-    },
-    "diode_direction": "COL2ROW",
-
     "layouts": {
         "LAYOUT": {
             "layout": [
@@ -129,5 +95,43 @@
                 {"matrix": [9, 1], "x": 7, "y": 4}
             ]
         }
+    },
+    "matrix_pins": {
+        "cols": ["GP9", "GP8", "GP7", "GP6", "GP5", "GP4"],
+        "rows": ["GP10", "GP0", "GP1", "GP2", "GP3"]
+    },
+    "split": {
+        "enabled": true,
+        "handedness":{
+            "pin":"GP20"
+        },
+        "serial":{
+            "driver": "vendor",
+            "full_duplex": true,
+            "pin_swap": true,
+            "usart_rx_pin": "GP23",
+            "usart_tx_pin": "GP21"
+        },
+        "transport": {
+            "sync": {
+                "matrix_state": true
+            }
+        }
+    },
+    "tapping": {
+        "chordal_hold" : true,
+        "dynamic_tapping_term" : true,
+        "flow_tap_term" : 150,
+        "hold_on_other_key_press": true,
+        "hold_on_other_key_press_per_key" : false,
+        "permissive_hold" : false,
+        "permissive_hold_per_key" : false,
+        "speculative_hold" : true,
+        "term_per_key" : false
+    },
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x0000",
+        "vid": "0xFEED"
     }
 }
