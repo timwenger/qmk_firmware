@@ -307,6 +307,7 @@
             "type": "object",
             "properties": {
                 "count": {"$ref": "./definitions.jsonschema#/unsigned_int"},
+                "should_trigger": {"type": "boolean"},
                 "term": {"$ref": "./definitions.jsonschema#/unsigned_int"}
             }
         },
