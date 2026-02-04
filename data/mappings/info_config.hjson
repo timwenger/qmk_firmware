@@ -59,6 +59,7 @@
 
     // Combos
     "COMBO_TERM": {"info_key": "combo.term", "value_type": "int"},
+    "COMBO_SHOULD_TRIGGER": {"info_key": "combo.should_trigger", "value_type": "flag"},
 
     "DIP_SWITCH_MATRIX_GRID": {"info_key": "dip_switch.matrix_grid", "value_type": "array.array.int", "to_json": false},
     "DIP_SWITCH_PINS": {"info_key": "dip_switch.pins", "value_type": "array"},

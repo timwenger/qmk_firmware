@@ -7,6 +7,7 @@
 
 COMB(PAGE_UP,            KC_PGUP,               KC_W, KC_F)
 COMB(PAGE_DOWN,          KC_PGDN,               KC_F, KC_P)
+COMB(BACKSPACE,          KC_BSPC,               KC_R, KC_S)
 
 COMB(CLOSE_WINDOW,       LALT(KC_F4),           KC_Q, KC_W, KC_F, KC_P)
 COMB(PRINT_SCREEN,       KC_PRINT_SCREEN,       LT(L_PKY, KC_A), KC_R, KC_S, KC_T)
@@ -22,6 +23,7 @@ COMB(TOGGLE_FROM_L_HAND, TG(LH),                KC_4, KC_5, KC_6)
 COMB(BACK_TICK,          KC_GRV,                        KC_L, KC_U)
 COMB(QUOTES,             KC_QUOT,                       KC_U, KC_Y)
 COMB(SEMICOLON,          KC_SEMICOLON,                  KC_COMM, KC_DOT)
+COMB(ENTER,              KC_ENTER,              KC_E, KC_I)
 
 COMB(TAP_TERM_LONGER,    QK_DYNAMIC_TAPPING_TERM_UP,    KC_L, KC_U, KC_Y, KC_ESC)
 COMB(PRINT_TAP_TERM,     QK_DYNAMIC_TAPPING_TERM_PRINT, KC_N, KC_E, KC_I, LT(R_PKY, KC_O))

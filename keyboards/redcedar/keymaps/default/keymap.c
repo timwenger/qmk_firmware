@@ -67,13 +67,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-// const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
 // const key_override_t shift_space_enter = ko_make_basic(MOD_MASK_SHIFT, RSFT_T(KC_SPC), KC_ENTER);
+const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t exclamation_mark = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXCLAIM);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
-	// &shift_backspace_delete,
+  &shift_backspace_delete,
   // &shift_space_enter,
   &exclamation_mark
 };
@@ -121,6 +121,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
     }
     return true;
+}
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  // Disable the combo if it's pressed within the Flow Tap term.
+  return !within_flow_tap_term(keycode, record);
 }
 
 // The higher the thresholds are, the longer it takes to accumulate to scroll to the next line jump
