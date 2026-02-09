@@ -6,13 +6,15 @@
 # include "print.h"
 # include "g/keymap_combo.h"
 
+// Use a * to disable chordal hold on a key.
+// For more control, use the the get_chordal_hold() function below.
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
         'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
         'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
-        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', '*', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', /*the 2nd column on this row is indeed a * to disable chordal hold so that 1 handed copy paste can happen*/
                   'L', 'L', 'L',               'R', 'R', 'R',
-                            'L', 'L',     'R', 'R'
+                            '*', '*',     '*', '*'
     );
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -31,44 +33,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
      */
     [HOME] = LAYOUT(
-        KC_AUDIO_MUTE,  KC_Q,           KC_W,     KC_F,     KC_P,             KC_G,             KC_J,      KC_L,            KC_U,    KC_Y,    KC_ESC,          KC_AUDIO_VOL_UP,
-        KC_TAB,       LT(L_PKY, KC_A),  KC_R,     KC_S,     KC_T,             KC_D,             KC_H,      KC_N,            KC_E,    KC_I,    LT(R_PKY, KC_O), KC_DEL,
-        KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,     KC_C,     KC_V,             KC_B,             KC_K,      KC_M,            KC_COMM, KC_DOT,  KC_QUES,         KC_AUDIO_VOL_DOWN,
-                                        KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),  KC_NO,   KC_NO,
-                                                            KC_TAB,           KC_LCTL,          KC_RCTL,   KC_RALT
+        KC_AUDIO_MUTE,  KC_Q,           KC_W,               KC_F,            KC_P,              KC_G,             KC_J,      KC_L,            KC_U,           KC_Y,            KC_ESC,          KC_AUDIO_VOL_UP,
+        KC_TAB,       LT(L_PKY, KC_A),  KC_R,               LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_DEL,
+        KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,               KC_C,            KC_V,              KC_B,             KC_K,      KC_M,            KC_COMM,        KC_DOT,          KC_QUES,         KC_AUDIO_VOL_DOWN,
+                                        KC_LALT,            KC_TAB,          LSFT_T(KC_BSPC),                                RSFT_T(KC_SPC),  KC_NO,          KC_NO,
+                                                                             KC_TAB,            KC_LCTL,          KC_RCTL,   KC_RALT
     ),
-    [LH] = LAYOUT(
-        KC_TRNS,        KC_NO,          KC_7,     KC_8,     KC_9,             KC_EQL,           KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
-        KC_TRNS,       LT(L_PKY, KC_0), KC_4,     KC_5,     KC_6,             KC_SPC,           KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
-        KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,     KC_2,     KC_3,             KC_ENTER,         KC_NO,     KC_NO,           KC_NO,   KC_NO,    KC_NO,          KC_NO,
-                                        KC_COMM,  KC_DOT,   LSFT_T(KC_BSPC),                               KC_NO,           KC_NO,   KC_NO,
-                                                            KC_TRNS,          KC_TRNS,          KC_NO,     KC_NO
+    [LH] = LAYOUT( /*pressing any key on the right side toggles this left-hand only layer off again.*/
+        KC_TRNS,        KC_NO,          KC_7,               KC_8,            KC_9,              KC_EQL,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
+        KC_TRNS,       LT(L_PKY, KC_0), KC_4,               LALT_T(KC_5),    LCTL_T(KC_6),      KC_SPC,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
+        KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,               KC_2,            KC_3,              KC_ENTER,         TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
+                                        KC_COMM,            KC_DOT,          LSFT_T(KC_BSPC),                                TG(LH),          TG(LH),         TG(LH),
+                                                                             KC_TRNS,           KC_TRNS,          TG(LH),    TG(LH)
     ),
     [R_PKY] = LAYOUT(
-        KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_NO,          KC_TRNS,
-        KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_ENTER,         KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
-                                        KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_ENTER), KC_NO,   KC_NO,
-                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
+        KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
+        KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
+                                        KC_LALT,            KC_TAB,          KC_LSFT,                                        RSFT_T(KC_SPC),   KC_NO,         KC_NO,
+                                                                             KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_LPKY] = LAYOUT(
-        KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_UP,   QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,   KC_F9,   KC_NO,          KC_TRNS,
-        KC_TRNS,        KC_HOME,        KC_LEFT,  KC_DOWN,  KC_RGHT,          KC_END,           KC_F11,    KC_F4,            KC_F5,   KC_F6,   KC_NO,          KC_TRNS,
-        KC_TRNS,        LCTL(KC_Z),   LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),     KC_ENTER,         KC_F10,    KC_F1,            KC_F2,   KC_F3,   KC_NO,          KC_TRNS,
-                                        KC_LALT,  KC_TAB,   LSFT_T(KC_DEL),                                RSFT_T(KC_SPC),   KC_NO,   KC_NO,
-                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
+        KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
+        KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
+        KC_TRNS,        LCTL(KC_Z),     LCTL(KC_X),         LCTL(KC_C),      LCTL(KC_V),        KC_ENTER,         KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
+                                        KC_LALT,            KC_TAB,          KC_LSFT,                                        RSFT_T(KC_SPC),   KC_NO,         KC_NO,
+                                                                             KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_PKY] = LAYOUT(
-        KC_TRNS,        KC_NO, QK_MOUSE_BUTTON_2, KC_NO,   QK_MOUSE_BUTTON_1, KC_NO,            KC_EQL,    KC_7,             KC_8,   KC_9,   KC_NO,            KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_BSLS,  KC_SLSH,  KC_MINS,          KC_NO,            KC_PPLS,   KC_4,             KC_5,   KC_6,   KC_0,             KC_TRNS,
-        KC_TRNS,        KC_NO,          KC_NO,    KC_NO,    KC_NO,            KC_NO,            KC_NO,     KC_1,             KC_2,   KC_3,   KC_NO,            KC_TRNS,
-                                        KC_LALT,  KC_TAB,   LSFT_T(KC_BSPC),                               RSFT_T(KC_SPC),   KC_COMM, KC_DOT,
-                                                            KC_TRNS,          KC_TRNS,          KC_TRNS,   KC_TRNS
+        KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_EQL,    KC_7,             KC_8,          KC_9,            KC_NO,           KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_PPLS,   RCTL_T(KC_4),     RALT_T(KC_5),  KC_6,            KC_0,            KC_TRNS,
+        KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_NO,     KC_1,             KC_2,          KC_3,            KC_NO,           KC_TRNS,
+                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        RSFT_T(KC_SPC),   KC_COMM,       KC_DOT,
+                                                                             KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
+    ),
+    [R_IDX] = LAYOUT( /* for slashes*/
+        KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_BSLS,            KC_SLSH,         KC_MINS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
+        KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
+                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        KC_TRNS,          KC_TRNS,       KC_TRNS,
+                                                                             KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     )
 };
 
 // const key_override_t shift_space_enter = ko_make_basic(MOD_MASK_SHIFT, RSFT_T(KC_SPC), KC_ENTER);
-const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
 const key_override_t exclamation_mark = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXCLAIM);
 
 // This globally defines all key overrides to be used
@@ -77,6 +86,15 @@ const key_override_t *key_overrides[] = {
   // &shift_space_enter,
   &exclamation_mark
 };
+
+
+
+/////////////////////////////////////////////////////
+// Hold and tap control                            //
+/////////////////////////////////////////////////////
+
+
+
 
 
 // May 31, 2025: I've turned off term_per_key in keyboard.json.
@@ -106,6 +124,47 @@ const key_override_t *key_overrides[] = {
 //     }
 // }
 
+//  return true when you want tap_hold_keycodes to hold
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+    uint16_t other_keycode, keyrecord_t* other_record) {
+
+    // problem: Apparently I roll the index fingers. T and H together are super common, resulting in Control + H without this code (which I almost never want).
+    switch (tap_hold_keycode) {
+        case LCTL_T(KC_T):
+            if (other_keycode == KC_H) {
+                return false;
+            }
+            break;
+    }
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  // Enable the apostrophe combo during regular typing.
+    if (combo_index == QUOTES) {
+        return true;
+    }
+  // Disable the combo if it's pressed within the Flow Tap term.
+  return !within_flow_tap_term(keycode, record);
+}
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+// Joystick mouse movement and scrolling           //
+/////////////////////////////////////////////////////
+
+
+
+
+
 bool left_side_scroll = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -121,11 +180,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
     }
     return true;
-}
-
-bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-  // Disable the combo if it's pressed within the Flow Tap term.
-  return !within_flow_tap_term(keycode, record);
 }
 
 // The higher the thresholds are, the longer it takes to accumulate to scroll to the next line jump
@@ -161,41 +215,3 @@ report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, re
 
     return left_report;
 }
-// int count = 0;
-// report_mouse_t pointing_device_task_user(report_mouse_t left_report) {
-
-  // count++;
-  // if (count >10){
-  //   count = 0;
-  //   // convert right hand side to scrolling
-  //   // once I have the right side built, I may need to invert these values
-  //   if (right_report.x>0){
-  //     right_report.h = 1;
-  //   } else if (right_report.x <0){
-  //     right_report.h = -1;
-  //   }
-  //   if (right_report.y>0){
-  //     right_report.v = 1;
-  //   } else if (right_report.y <0){
-  //     right_report.v = -1;
-  //   }
-  // }
-
-  // right_report.x = 0;
-  // right_report.y = 0;
-
-//   int16_t X = analogReadPin(ANALOG_JOYSTICK_X_AXIS_PIN);
-//   int16_t Y = analogReadPin(ANALOG_JOYSTICK_Y_AXIS_PIN);
-//   int16_t button = analogReadPin(GP28);
-
-//   uprintf("x: %5d y: %5d X: %5d Y: %5d Button: %5d\n", left_report.x, left_report.y, X, Y, button);
-//   return left_report;
-// }
-
-//void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  //debug_enable=true;
-  //debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
-//}
