@@ -12,7 +12,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
         'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
         'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
-        'L', '*', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', /*the 2nd column on this row is indeed a * to disable chordal hold so that 1 handed copy paste can happen*/
+        'L', '*', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', /*the 2nd column on this row is indeed a * to disable chordal hold on Lower left pinky so that 1 handed copy paste can happen*/
                   'L', 'L', 'L',               'R', 'R', 'R',
                             '*', '*',     '*', '*'
     );
@@ -124,14 +124,21 @@ const key_override_t *key_overrides[] = {
 //     }
 // }
 
-//  return true when you want tap_hold_keycodes to hold
+//  return true when you want tap_hold_keycodes to hold on opposite hand key taps.
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
 
-    // problem: Apparently I roll the index fingers. T and H together are super common, resulting in Control + H without this code (which I almost never want).
+    // problem: Apparently I roll the index fingers. Therefore, any combination that's commonly at the beginning of typing (and at the beginning of a word) is 
+    // a good candidate to remove from here. If I really want that combo, I'll need to hold >500ms.
+    
     switch (tap_hold_keycode) {
         case LCTL_T(KC_T):
-            if (other_keycode == KC_H) {
+            if (other_keycode == KC_H) { // T+H, common in 'the' / 'there', etc
+                return false;
+            }
+            break;
+        case LALT_T(KC_S):
+            if (other_keycode == KC_O) { // S+O (in some)
                 return false;
             }
             break;
@@ -149,8 +156,35 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
   return !within_flow_tap_term(keycode, record);
 }
 
+// https://docs.qmk.fm/tap_hold#is-flow-tap-key
+// called by get_flow_tap_term for both the tap/hold key and the previous key.
+// Implementation is default except as commented below
+bool is_flow_tap_key(uint16_t keycode) {
+    if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
+        return false; // Disable Flow Tap on hotkeys.
+    }
+    switch (get_tap_keycode(keycode)) {
+        // case KC_SPC: // Tim's edit: removed space here so that I can fluently use shift within the flow tapping term
+        case KC_A ... KC_Z:
+        case KC_DOT:
+        case KC_COMM:
+        case KC_SCLN:
+        case KC_SLSH:
+            return true;
+    }
+    return false;
+}
 
-
+// https://docs.qmk.fm/tap_hold#get-flow-tap-term
+// Return a time of 0 to disable flow tap. In this way, Flow Tap may be disabled for certain tap-hold keys, or when following certain previous keys.
+// Implementation is default (only explicitly defined here for clarity and ease of future modification)
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record,
+                           uint16_t prev_keycode) {
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+        return FLOW_TAP_TERM;
+    }
+    return 0;
+}
 
 
 
