@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_EQL,    KC_7,             KC_8,          KC_9,            KC_NO,           KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_PPLS,   RCTL_T(KC_4),     RALT_T(KC_5),  KC_6,            KC_0,            KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_NO,     KC_1,             KC_2,          KC_3,            KC_NO,           KC_TRNS,
-                                        KC_TRNS,            KC_TRNS,         LSFT_T(KC_BSPC),                                KC_RSFT,          KC_COMM,       KC_DOT,
+                                        KC_TRNS,            KC_TRNS,         KC_LSFT,                                        KC_RSFT,          KC_COMM,       KC_DOT,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [R_IDX] = LAYOUT( /* for slashes*/
