@@ -95,28 +95,21 @@ const key_override_t *key_overrides[] = {
 
 
 
-
-// explicitly return true when you want tap_hold_keycodes to hold on opposite hand key taps.
-// or explicitly return false when you want to allow a specific same-handed shortcut (chord) 
+// return true when you don't want chordal hold to interfere (and let permissive hold / hold on other key press do its thing).
+// return false when you want chordal hold to force the tap-hold key to be a tap (so you don't accidentally trigger chords / shortcuts)
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
-
-    // // problem: Apparently I roll the index fingers. Therefore, any combination that's commonly at the beginning of typing (and at the beginning of a word) is 
-    // // a good candidate to remove from here. If I really want that combo, I'll need to hold >500ms.
     
-    // switch (tap_hold_keycode) {
-    //     case LCTL_T(KC_T):
-    //         if (other_keycode == KC_H) { // T+H, common in 'the' / 'there', etc
-    //             return false;
-    //         }
-    //         break;
-    //     case LALT_T(KC_S):
-    //         if (other_keycode == KC_O || // S+O (in some) 
-    //             other_keycode == KC_H) { // S+H (in shift)
-    //             return false;
-    //         }
-    //         break;
-    // }
+    switch (tap_hold_keycode) {
+        case LT(R_PKY, KC_O):
+             // F keys that I want to get to very fast using right pinky
+             // These are in awkward positions, so they're unlikely to be rolled.
+            if (other_keycode == KC_J || // F12 (go to definition)
+                other_keycode == KC_COMM) { // F2 (rename)
+                return true;
+            }
+            break;
+    }
     // Otherwise defer to the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
