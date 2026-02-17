@@ -34,37 +34,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [HOME] = LAYOUT(
         KC_AUDIO_MUTE,  KC_Q,           KC_W,               KC_F,            KC_P,              KC_G,             KC_J,      KC_L,            KC_U,           KC_Y,            KC_ESC,          KC_AUDIO_VOL_UP,
-        KC_TAB,       LT(L_PKY, KC_A),  KC_R,               LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_DEL,
+        KC_LSFT,      LT(L_PKY, KC_A),  KC_R,               LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_LSFT,
         KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,               KC_C,            KC_V,              KC_B,             KC_K,      KC_M,            KC_COMM,        KC_DOT,          KC_QUES,         KC_AUDIO_VOL_DOWN,
-                                        KC_LALT,            KC_TAB,          LSFT_T(KC_BSPC),                                RSFT_T(KC_SPC),  KC_NO,          KC_NO,
+                                        KC_LALT,            KC_TAB,          KC_BSPC,                                        KC_SPC,          KC_NO,          KC_NO,
                                                                              KC_TAB,            KC_LCTL,          KC_RCTL,   KC_RALT
     ),
     [LH] = LAYOUT( /*pressing any key on the right side toggles this left-hand only layer off again.*/
         KC_TRNS,        KC_NO,          KC_7,               KC_8,            KC_9,              KC_EQL,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
         KC_TRNS,       LT(L_PKY, KC_0), KC_4,               LALT_T(KC_5),    LCTL_T(KC_6),      KC_SPC,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
         KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,               KC_2,            KC_3,              KC_ENTER,         TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
-                                        KC_COMM,            KC_DOT,          LSFT_T(KC_BSPC),                                TG(LH),          TG(LH),         TG(LH),
+                                        KC_COMM,            KC_DOT,          KC_BSPC,                                        TG(LH),          TG(LH),         TG(LH),
                                                                              KC_TRNS,           KC_TRNS,          TG(LH),    TG(LH)
     ),
     [R_PKY] = LAYOUT(
         KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
-                                        KC_LALT,            KC_TAB,          KC_LSFT,                                        RSFT_T(KC_SPC),   KC_NO,         KC_NO,
+                                        KC_LALT,            KC_TAB,          KC_TRNS,                                        KC_TRNS,          KC_NO,         KC_NO,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_LPKY] = LAYOUT(
         KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
         KC_TRNS,        LCTL(KC_Z),     LCTL(KC_X),         LCTL(KC_C),      LCTL(KC_V),        KC_ENTER,         KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
-                                        KC_LALT,            KC_TAB,          LSFT_T(KC_DEL),                                 RSFT_T(KC_SPC),   KC_NO,         KC_NO,
+                                        KC_LALT,            KC_TAB,          KC_DEL,                                         KC_TRNS,          KC_NO,         KC_NO,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_PKY] = LAYOUT(
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_EQL,    KC_7,             KC_8,          KC_9,            KC_NO,           KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_PPLS,   RCTL_T(KC_4),     RALT_T(KC_5),  KC_6,            KC_0,            KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_NO,     KC_1,             KC_2,          KC_3,            KC_NO,           KC_TRNS,
-                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        RSFT_T(KC_SPC),   KC_COMM,       KC_DOT,
+                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        KC_TRNS,          KC_COMM,       KC_DOT,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [R_IDX] = LAYOUT( /* for slashes*/
@@ -96,54 +96,27 @@ const key_override_t *key_overrides[] = {
 
 
 
-
-// May 31, 2025: I've turned off term_per_key in keyboard.json.
-// Instead I'm using a dynamic tapping term.
-// uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case LT(L_PKY, KC_A):
-//             return TAPPING_TERM + 50;
-//         default:
-//             return TAPPING_TERM;
-//     }
-// }
-
-// Feb 3, 2026: removed permissive_hold_per_key in hopes that opposite hand home row mods
-// such as chordal hold and flow tap will allow using Hold on other Key Press for all holds
-// https://docs.qmk.fm/tap_hold#permissive-hold
-// bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case LT(L_PKY, KC_A):
-//         case LT(R_PKY, KC_O):
-//             // Select the hold action when another key is tapped and released
-//             // before this key is released, even if it's tapped before the tapping term
-//             return true;
-//         default:
-//             // Do not select the hold action when another key is tapped.
-//             return false;
-//     }
-// }
-
-//  return true when you want tap_hold_keycodes to hold on opposite hand key taps.
+// explicitly return true when you want tap_hold_keycodes to hold on opposite hand key taps.
+// or explicitly return false when you want to allow a specific same-handed shortcut (chord) 
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
 
-    // problem: Apparently I roll the index fingers. Therefore, any combination that's commonly at the beginning of typing (and at the beginning of a word) is 
-    // a good candidate to remove from here. If I really want that combo, I'll need to hold >500ms.
+    // // problem: Apparently I roll the index fingers. Therefore, any combination that's commonly at the beginning of typing (and at the beginning of a word) is 
+    // // a good candidate to remove from here. If I really want that combo, I'll need to hold >500ms.
     
-    switch (tap_hold_keycode) {
-        case LCTL_T(KC_T):
-            if (other_keycode == KC_H) { // T+H, common in 'the' / 'there', etc
-                return false;
-            }
-            break;
-        case LALT_T(KC_S):
-            if (other_keycode == KC_O || // S+O (in some) 
-                other_keycode == KC_H) { // S+H (in shift)
-                return false;
-            }
-            break;
-    }
+    // switch (tap_hold_keycode) {
+    //     case LCTL_T(KC_T):
+    //         if (other_keycode == KC_H) { // T+H, common in 'the' / 'there', etc
+    //             return false;
+    //         }
+    //         break;
+    //     case LALT_T(KC_S):
+    //         if (other_keycode == KC_O || // S+O (in some) 
+    //             other_keycode == KC_H) { // S+H (in shift)
+    //             return false;
+    //         }
+    //         break;
+    // }
     // Otherwise defer to the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
@@ -159,13 +132,13 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 
 // https://docs.qmk.fm/tap_hold#is-flow-tap-key
 // called by get_flow_tap_term for both the tap/hold key and the previous key.
-// Implementation is default except as commented below
+// Implementation is default
 bool is_flow_tap_key(uint16_t keycode) {
     if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
         return false; // Disable Flow Tap on hotkeys.
     }
     switch (get_tap_keycode(keycode)) {
-        // case KC_SPC: // Tim's edit: removed space here so that I can fluently use shift within the flow tapping term
+        case KC_SPC:
         case KC_A ... KC_Z:
         case KC_DOT:
         case KC_COMM:

@@ -126,12 +126,12 @@
         "chordal_hold" : true,
         "dynamic_tapping_term" : true,
         "flow_tap_term" : 150,
-        "hold_on_other_key_press": true,
+        "hold_on_other_key_press": false,
         "hold_on_other_key_press_per_key" : false,
-        "permissive_hold" : false,
+        "permissive_hold" : true,
         "permissive_hold_per_key" : false,
-        "speculative_hold" : true,
-        "term": 500,
+        "speculative_hold" : false,
+        "term": 300,
         "term_per_key" : false
     },
     "usb": {
