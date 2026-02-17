@@ -11,9 +11,9 @@
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
         'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
-        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
+        '*', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', '*', 
         'L', '*', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', /*the 2nd column on this row is indeed a * to disable chordal hold on Lower left pinky so that 1 handed copy paste can happen*/
-                  'L', 'L', 'L',               'R', 'R', 'R',
+                  'L', 'L', '*',               '*', 'R', 'R',
                             '*', '*',     '*', '*'
     );
 
@@ -50,34 +50,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
-                                        KC_LALT,            KC_TAB,          KC_TRNS,                                        KC_TRNS,          KC_NO,         KC_NO,
+                                        KC_LALT,            KC_TAB,          KC_LSFT,                                        KC_RSFT,          KC_NO,         KC_NO,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_LPKY] = LAYOUT(
         KC_TRNS,        KC_NO,          QK_MOUSE_BUTTON_2,  KC_UP,           QK_MOUSE_BUTTON_1, KC_NO,            KC_F12,    KC_F7,            KC_F8,         KC_F9,           KC_NO,           KC_TRNS,
         KC_TRNS,        KC_HOME,        KC_LEFT,            KC_DOWN,         KC_RGHT,           KC_END,           KC_F11,    RCTL_T(KC_F4),    RALT_T(KC_F5), KC_F6,           KC_NO,           KC_TRNS,
         KC_TRNS,        LCTL(KC_Z),     LCTL(KC_X),         LCTL(KC_C),      LCTL(KC_V),        KC_ENTER,         KC_F10,    KC_F1,            KC_F2,         KC_F3,           KC_NO,           KC_TRNS,
-                                        KC_LALT,            KC_TAB,          KC_DEL,                                         KC_TRNS,          KC_NO,         KC_NO,
+                                        KC_LALT,            KC_TAB,          KC_DEL,                                         KC_RSFT,          KC_NO,         KC_NO,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [L_PKY] = LAYOUT(
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_EQL,    KC_7,             KC_8,          KC_9,            KC_NO,           KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_PPLS,   RCTL_T(KC_4),     RALT_T(KC_5),  KC_6,            KC_0,            KC_TRNS,
         KC_TRNS,        KC_NO,          KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_NO,     KC_1,             KC_2,          KC_3,            KC_NO,           KC_TRNS,
-                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        KC_TRNS,          KC_COMM,       KC_DOT,
+                                        KC_TRNS,            KC_TRNS,         LSFT_T(KC_BSPC),                                KC_RSFT,          KC_COMM,       KC_DOT,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
     [R_IDX] = LAYOUT( /* for slashes*/
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_BSLS,            KC_SLSH,         KC_MINS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
-                                        KC_TRNS,            KC_TRNS,         KC_TRNS,                                        KC_TRNS,          KC_TRNS,       KC_TRNS,
+                                        KC_TRNS,            KC_TRNS,         KC_LSFT,                                        KC_RSFT,          KC_TRNS,       KC_TRNS,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     )
 };
 
 // const key_override_t shift_space_enter = ko_make_basic(MOD_MASK_SHIFT, RSFT_T(KC_SPC), KC_ENTER);
-const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, LSFT_T(KC_BSPC), KC_DEL);
+const key_override_t shift_backspace_delete = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t exclamation_mark = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXCLAIM);
 
 // This globally defines all key overrides to be used
