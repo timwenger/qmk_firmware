@@ -34,14 +34,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [HOME] = LAYOUT(
         KC_AUDIO_MUTE,  KC_Q,           KC_W,               KC_F,            KC_P,              KC_G,             KC_J,      KC_L,            KC_U,           KC_Y,            KC_ESC,          KC_AUDIO_VOL_UP,
-        KC_LSFT,      LT(L_PKY, KC_A),  KC_R,               LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_LSFT,
+        KC_LSFT,      LT(L_PKY, KC_A),  LGUI_T(KC_R),       LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_LSFT,
         KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,               KC_C,            KC_V,              KC_B,             KC_K,      KC_M,            KC_COMM,        KC_DOT,          KC_QUES,         KC_AUDIO_VOL_DOWN,
                                         KC_LALT,            KC_TAB,          KC_BSPC,                                        KC_SPC,          KC_NO,          KC_NO,
                                                                              KC_TAB,            KC_LCTL,          KC_RCTL,   KC_RALT
     ),
     [LH] = LAYOUT( /*pressing any key on the right side toggles this left-hand only layer off again.*/
         KC_TRNS,        KC_NO,          KC_7,               KC_8,            KC_9,              KC_EQL,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
-        KC_TRNS,       LT(L_PKY, KC_0), KC_4,               LALT_T(KC_5),    LCTL_T(KC_6),      KC_SPC,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
+        KC_TRNS,       LT(L_PKY, KC_0), LGUI_T(KC_4),       LALT_T(KC_5),    LCTL_T(KC_6),      KC_SPC,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
         KC_TRNS, LT(L_LPKY,LCTL(KC_Z)), KC_1,               KC_2,            KC_3,              KC_ENTER,         TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
                                         KC_COMM,            KC_DOT,          KC_BSPC,                                        TG(LH),          TG(LH),         TG(LH),
                                                                              KC_TRNS,           KC_TRNS,          TG(LH),    TG(LH)
