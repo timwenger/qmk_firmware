@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,      LT(L_PKY, KC_A),  LGUI_T(KC_R),       LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_RSFT,
         KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,               KC_C,            KC_V,              KC_B,             KC_K,      KC_M,            KC_COMM,        KC_DOT,          KC_QUES,         KC_AUDIO_VOL_DOWN,
                                         KC_LALT,            KC_TAB,          KC_BSPC,                                        KC_SPC,          KC_NO,          KC_NO,
-                                                                             RWIN(KC_L),        KC_PRINT_SCREEN,  KC_F20,    KC_CALC /*F20 for mic mute*/
+                                                                             LWIN(KC_L),        LWIN(LSFT(KC_S)), RWIN(KC_F20),KC_CALC /*Win + F20 for general shortcut (ie, open teams)*/
     ),
     [LH] = LAYOUT( /*pressing any key on the right side toggles this left-hand only layer off again.*/
         KC_TRNS,        KC_NO,          KC_7,               KC_8,            KC_9,              KC_EQL,           TG(LH),    TG(LH),          TG(LH),         TG(LH),          TG(LH),          TG(LH),
