@@ -52,6 +52,11 @@ COMB(R_CURLY_BRACE,      KC_RCBR,               KC_M, KC_DOT)
 
 COMB(SEMICOLON_CPY,      KC_SEMICOLON,          KC_2, KC_3)
 
+// Left hand setup combos
+// ======================================================================
+COMB(L_HAND_ENTER,       KC_ENTER,              LGUI_T(KC_4), LALT_T(KC_5))
+COMB(L_HAND_SPACE,       KC_SPC,                LGUI_T(KC_5), LALT_T(KC_6))
+
 
 // 3x vertical, don't accidentally touch me combos. Sorted from left to right
 // ======================================================================
