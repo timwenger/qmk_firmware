@@ -132,8 +132,9 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-  // Enable the apostrophe combo during regular typing.
-    if (combo_index == QUOTES) {
+  // Enable the apostrophe and backtick combos during regular typing.
+    if (combo_index == QUOTES ||
+        combo_index == BACK_TICK) {
         return true;
     }
   // Disable the combo if it's pressed within the Flow Tap term.
