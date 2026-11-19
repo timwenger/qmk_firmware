@@ -10,9 +10,9 @@
 // For more control, use the the get_chordal_hold() function below.
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
-        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', 
-        '*', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', '*', 
-        'L', '*', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R', /*the 2nd column on this row is indeed a * to disable chordal hold on Lower left pinky so that 1 handed copy paste can happen*/
+        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R',
+        '*', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', '*',
+        'L', 'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R', 'R',
                   'L', 'L', '*',               '*', 'R', 'R',
                             '*', '*',     '*', '*'
     );
@@ -99,8 +99,18 @@ const key_override_t *key_overrides[] = {
 // return false when you want chordal hold to force the tap-hold key to be a tap (so you don't accidentally trigger chords / shortcuts)
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
-    
+
     switch (tap_hold_keycode) {
+        case LT(L_LPKY, KC_Z):
+            // Don't wait for tapping term for left-hand-only copy paste, which i use regularly.
+            // It's unlikely that I want to press a 'zx' or 'zc' tap sequence, so this is okay.
+            // Note that we don't use LCTL(KC_X), etc as the other keycode because the layer isn't yet activated when testing for chordal hold.
+            if (other_keycode == KC_X ||
+                other_keycode == KC_C ||
+                other_keycode == KC_V) {
+                return true;
+            }
+            break;
         case LT(R_PKY, KC_O):
              // F keys that I want to get to very fast using right pinky
              // These are in awkward positions, so they're unlikely to be rolled.
@@ -112,6 +122,13 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     }
     // Otherwise defer to the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
+// List all mod keys that you want to be "Hold on other key press" keys, rather
+// than regular permissive hold keys.
+// This relies on hold_on_other_key_press_per_key being set to true in the keyboard.json file.
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    return keycode == LT(L_LPKY, KC_Z);
 }
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
@@ -195,7 +212,7 @@ report_mouse_t pointing_device_task_combined_user(report_mouse_t left_report, re
         left_report.x = 0;
         left_report.y = 0;
     }
-    
+
     vertical_scroll_sum += right_report.y;
     if (vertical_scroll_sum > vertical_scroll_threshold) {
         left_report.v = -1;

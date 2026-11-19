@@ -127,7 +127,7 @@
         "dynamic_tapping_term" : true,
         "flow_tap_term" : 150,
         "hold_on_other_key_press": false,
-        "hold_on_other_key_press_per_key" : false,
+        "hold_on_other_key_press_per_key" : true,
         "permissive_hold" : true,
         "permissive_hold_per_key" : false,
         "speculative_hold" : false,
