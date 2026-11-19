@@ -117,6 +117,8 @@
             "usart_tx_pin": "GP21"
         },
         "transport": {
+            "watchdog": true,
+            "watchdog_timeout": 2000,
             "sync": {
                 "matrix_state": true
             }
