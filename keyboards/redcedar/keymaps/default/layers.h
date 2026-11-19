@@ -4,5 +4,5 @@ enum layer_names {
   R_PKY,  // Right pinky hold layer
   L_PKY,   // Left pinky hold layer
   L_LPKY,   // Left lower pinky hold layer
-  R_IDX,   // Right index hold layer
+  R_RNG,   // Right ring finger hold layer
 };

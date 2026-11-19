@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [HOME] = LAYOUT(
         KC_AUDIO_MUTE,  KC_Q,           KC_W,               KC_F,            KC_P,              KC_G,             KC_J,      KC_L,            KC_U,           KC_Y,            KC_ESC,          KC_AUDIO_VOL_UP,
-        KC_LSFT,      LT(L_PKY, KC_A),  LGUI_T(KC_R),       LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_IDX, KC_I), LT(R_PKY, KC_O), KC_RSFT,
+        KC_LSFT,      LT(L_PKY, KC_A),  LGUI_T(KC_R),       LALT_T(KC_S),    LCTL_T(KC_T),      KC_D,             KC_H,      RCTL_T(KC_N),    RALT_T(KC_E),   LT(R_RNG, KC_I), LT(R_PKY, KC_O), KC_RSFT,
         KC_MPLY,      LT(L_LPKY, KC_Z), KC_X,               KC_C,            KC_V,              KC_B,             KC_K,      KC_M,            KC_COMM,        KC_DOT,          KC_QUES,         KC_AUDIO_VOL_DOWN,
                                         KC_LALT,            KC_TAB,          KC_BSPC,                                        KC_SPC,          KC_NO,          KC_NO,
                                                                              LWIN(KC_L),        LWIN(LSFT(KC_S)), RWIN(KC_F20),KC_CALC /*Win + F20 for general shortcut (ie, open teams)*/
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         KC_TRNS,            KC_TRNS,         KC_LSFT,/*for nums shifted symbols*/            KC_RSFT,          KC_COMM,       KC_DOT,
                                                                              KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS
     ),
-    [R_IDX] = LAYOUT( /* for slashes*/
+    [R_RNG] = LAYOUT( /* for slashes*/
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_BSLS,            KC_SLSH,         KC_MINS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,
         KC_TRNS,        KC_TRNS,        KC_TRNS,            KC_TRNS,         KC_TRNS,           KC_TRNS,          KC_TRNS,   KC_TRNS,          KC_TRNS,       KC_TRNS,         KC_TRNS,         KC_TRNS,

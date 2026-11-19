@@ -23,10 +23,10 @@ COMB(TOGGLE_FROM_L_HAND, TG(LH),                LGUI_T(KC_4), LALT_T(KC_5), LCTL
 COMB(BACK_TICK,          KC_GRV,                        KC_L, KC_U)
 COMB(QUOTES,             KC_QUOT,                       KC_U, KC_Y)
 COMB(SEMICOLON,          KC_SEMICOLON,                  KC_COMM, KC_DOT)
-COMB(ENTER,              KC_ENTER,                      RALT_T(KC_E), LT(R_IDX, KC_I))
+COMB(ENTER,              KC_ENTER,                      RALT_T(KC_E), LT(R_RNG, KC_I))
 
 COMB(TAP_TERM_LONGER,    QK_DYNAMIC_TAPPING_TERM_UP,    KC_L, KC_U, KC_Y, KC_ESC)
-COMB(PRINT_TAP_TERM,     QK_DYNAMIC_TAPPING_TERM_PRINT, RCTL_T(KC_N), RALT_T(KC_E), LT(R_IDX, KC_I), LT(R_PKY, KC_O))
+COMB(PRINT_TAP_TERM,     QK_DYNAMIC_TAPPING_TERM_PRINT, RCTL_T(KC_N), RALT_T(KC_E), LT(R_RNG, KC_I), LT(R_PKY, KC_O))
 COMB(TAP_TERM_SHORTER,   QK_DYNAMIC_TAPPING_TERM_DOWN,  KC_M, KC_COMM, KC_DOT, KC_QUES)
 
 // modifiers
@@ -42,7 +42,7 @@ COMB(CAPS_WORD,          QK_CAPS_WORD_TOGGLE,   KC_BSPC, KC_SPC)
 COMB(L_SQUARE_BRACKET,   KC_LBRC,               KC_W, KC_P)
 COMB(R_SQUARE_BRACKET,   KC_RBRC,               KC_L, KC_Y)
 COMB(L_PARENTHESIS,      KC_LPRN,               LGUI_T(KC_R), LCTL_T(KC_T))
-COMB(R_PARENTHESIS,      KC_RPRN,               RCTL_T(KC_N), LT(R_IDX, KC_I))
+COMB(R_PARENTHESIS,      KC_RPRN,               RCTL_T(KC_N), LT(R_RNG, KC_I))
 COMB(L_CURLY_BRACE,      KC_LCBR,               KC_X, KC_V)
 COMB(R_CURLY_BRACE,      KC_RCBR,               KC_M, KC_DOT)
 
