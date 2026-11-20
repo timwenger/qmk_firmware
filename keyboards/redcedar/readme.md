@@ -23,14 +23,42 @@ In summary though, this is a 3D printed, handwired case with a RP2040 pro micro 
 ## Compiling and flashing onto the keyboard processor
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 
----
-
-First run this command from within this repository
+### First install WSL
+```powershell
+wsl --install
 ```
+
+### Then clone this repo
+clone it to the ~ home directory for simplicity
+
+```bash
+git clone https://github.com/timwenger/qmk_firmware.git
+```
+
+### Then install qmk
+```bash
+sudo apt update
+sudo apt install -y git python3-pip pipx
+pipx install qmk
+pipx ensurepath
+```
+
+### Then install support for building your kb from within this repository
+```bash
+sudo apt install -y build-essential gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi
+git submodule update --init --recursive
+```
+### Then compile using this command
+```bash
 qmk compile -kb redcedar -km default
+
+# or set defaults to make the command shorter
+qmk config user.keyboard=redcedar user.keymap=default
+qmk compile
+
 ```
 
-Then simply drag and drop the following file onto the processor once it's in bootloader mode and appears as a mass storage device
+Then simply drag and drop the following file onto the explorer window of the device once it's in bootloader mode and appears as a mass storage device
 ```
 path\to\repo\qmk_firmware\redcedar_default.uf2
 ```
