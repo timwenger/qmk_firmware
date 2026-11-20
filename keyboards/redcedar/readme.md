@@ -79,3 +79,22 @@ First, you need to enable debugging in your QMK firmware build - [turn on debugg
 Then, using Windows, you can use this terminal program to view the debugging messages
 
 https://www.pjrc.com/teensy/hid_listen.html
+
+
+## Pulling Upstream QMK into your fork
+```bash
+git remote add upstream https://github.com/qmk/qmk_firmware.git
+
+# Align submodules with this branch first
+git submodule update --init --recursive
+
+git fetch upstream
+git merge upstream/master
+
+# Align submodules with the merged version
+git submodule update --init --recursive
+
+qmk compile
+
+git push
+```
